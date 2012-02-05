@@ -16,8 +16,8 @@ class Five < Sinatra::Base
   end
 end
 
-# Load MongoMapper
-require './config/mongo.rb'
+# Load initializers
+Dir['config/initializers/*.rb'].each { |rb| require_relative rb }
 
 # Load models
-Dir['./models/*.rb'].each { |model| require model }
+Dir['models/*.rb'].each { |model| require_relative model }
