@@ -9,16 +9,9 @@ class Five < Sinatra::Base
   enable   :show_exceptions  if development?
 end
 
-# Load initializers
-Dir['config/initializers/*.rb'].each { |rb| require_relative rb }
-
-# Load models
-Dir['models/*.rb'].each { |rb| require_relative rb }
-
-# Load helpers
-Dir['helpers/*.rb'].each { |rb| require_relative rb }
-
-# Load routes
-Dir['routes/*.rb'].each { |rb| require_relative rb }
-
-
+['config/initializers', 'models', 'controllers', 'routes'].each do |dir|
+  Dir.glob("#{dir}/*.rb").each do |rb|
+    puts "loading #{rb}"
+    require_relative rb
+  end
+end
