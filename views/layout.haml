@@ -2,7 +2,24 @@
 %html
   %head
     %title Five
-    %link{:rel=>'stylesheet', :href=>'/stylesheets/style.css', :type => "text/css"}       
+    %link{rel: "stylesheet", href: "/stylesheets/bootstrap.css", type: "text/css"}       
   %body
-    %h1 Layout Title
-    = yield
+    .navbar
+      .navbar-inner
+        .container
+          %a.brand{href: "/"}
+            The 5 things I want...
+          %ul.nav
+            %li.active
+              %a{href: "/"} Home
+            %li
+              %a{href: "/"} Link
+            %li
+              %a{href: "/"} Link
+
+          %form.navbar-search.pull-right
+            %input.search-query{:placeholder => "Search", :type => "text"}
+    .container
+      = yield
+
+    %script{src: "javascripts/jquery-1.7.1.min.js", type: "text/javascript"}
