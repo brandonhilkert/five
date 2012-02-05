@@ -8,7 +8,7 @@ class Five
     if config_file.file?
       config = YAML.load(ERB.new(config_file.read).result)
       log = ::Logger.new(File.join(root, "log", "mongo-#{settings.environment}.log"))
-      ::MongoMapper.setup(config, settings.environment, logger: log)
+      ::MongoMapper.setup(config, settings.environment.to_s, logger: log)
     end
   end
 end

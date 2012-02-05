@@ -8,8 +8,6 @@ class Five < Sinatra::Base
   enable   :raise_errors, :sessions, :logging
   enable   :show_exceptions  if development?
 
-  
-
   not_found {haml :'404'}
   error {haml :'500'}
 
