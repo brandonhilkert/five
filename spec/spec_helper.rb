@@ -1,13 +1,14 @@
 require File.join(File.dirname(__FILE__), '..', 'five.rb')
 
-require 'rubygems'
-require 'sinatra'
 require 'rack/test'
 require 'rspec'
 
 set :environment, :test
 
 Rspec.configure do |config|
+
+  config.include Rack::Test::Methods
+
   config.after(:each) do
 
     # Clear out MongoDB before each test
@@ -16,4 +17,8 @@ Rspec.configure do |config|
     end
 
   end
+end
+
+def app
+  Five
 end
