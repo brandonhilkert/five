@@ -11,15 +11,21 @@
           %a.brand{href: "/"}
             The 5 things I want...
           %ul.nav
-            %li.active
-              %a{href: "/"} Home
             %li
-              %a{href: "/"} Link
-            %li
-              %a{href: "/"} Link
+              %a{href: "/home"} Home
+          
+          %ul.nav.pull-right
+            - if signed_in?
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %span.profile-image= image_tag current_user.profile_image_url
+                  = current_user.screen_name
+                  %b.caret
+                %ul.dropdown-menu
+                  %a{href: "/logout"} Logout
+            - else
+              %a{href: "/login"} Login
 
-          %form.navbar-search.pull-right
-            %input.search-query{:placeholder => "Search", :type => "text"}
     .container
       = yield
 
