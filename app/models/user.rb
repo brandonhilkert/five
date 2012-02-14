@@ -8,4 +8,5 @@ class User
   key :twitter_token,             String
   key :twitter_secret,            String
   key :twitter_following,         Array
+
 end

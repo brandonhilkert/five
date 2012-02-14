@@ -1,3 +1,4 @@
 .bundle/
 bin/
 *.log
+config/twitter.yml
