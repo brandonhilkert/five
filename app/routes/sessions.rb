@@ -1,22 +1,28 @@
 class Five
   get '/login' do
-    request_token = oauth_consumer.request_token(oauth_callback: "http://127.0.0.1:3000/callback")
-    session["request_token"] = request_token.token
-    session["request_secret"] = request_token.secret
-
-    debugger
-
+    request_token = oauth_consumer.get_request_token(oauth_callback: "#{base_url}/callback")
+    session[:request_token] = request_token.token
+    session[:request_secret] = request_token.secret
     redirect request_token.authorize_url
   end
 
   get '/callback' do
-    access_token = oauth_consumer.authorize(session["request_token"], session["request_secret"], oauth_verifier: params[:oauth_verifier])
+    request_token = OAuth::RequestToken.new(oauth_consumer, session[:request_token], session[:request_secret])
+    access_token = request_token.get_access_token({}, oauth_token: params[:oauth_token], oauth_verifier: params[:oauth_verifier])
+    session[:access_token] = access_token.token
+    session[:access_secret] = access_token.secret
+    redirect "/process"
+  end
 
-    # reset_session
-    session["access_token"] = access_token.token
-    session["access_secret"] = access_token.secret
-    user = client.verify_credentials
+  get '/process' do
+    user = User.process_login(client.verify_credentials)
     sign_in(user)
-    redirect_back_or root_path
+    redirect '/home'
+  end
+
+
+  get '/logout' do
+    session[:user_id] = nil
+    redirect '/'
   end
 end

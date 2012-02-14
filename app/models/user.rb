@@ -1,12 +1,16 @@
 class User
   include MongoMapper::Document
   
-  key :first_name,                String
-  key :last_name,                 String
-  key :twitter_id,                String
-  key :twitter_username,          String
-  key :twitter_token,             String
-  key :twitter_secret,            String
-  key :twitter_following,         Array
+  key :name,                String
+  key :screen_name,         String
+  key :wants,               Array
+
+  def self.process_login(twitter_response)
+    if user = self.first(screen_name: twitter_response["screen_name"])
+      user
+    else
+      User.create(name: twitter_response["name"], screen_name: twitter_response["screen_name"])
+    end
+  end
 
 end

@@ -2,7 +2,8 @@ source :rubygems
 
 gem 'sinatra'
 gem 'shotgun'
-gem 'twitter_oauth'
+gem 'twitter'
+gem 'oauth'
 gem 'rake'
 gem 'haml'
 gem 'unicorn'

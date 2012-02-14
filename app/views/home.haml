@@ -1,0 +1,9 @@
+%h1 
+  Private home page
+%p
+  = @token
+  = @secret
+%p
+  = @account.inspect
+%br
+%a{:href => "/logout"} Logout

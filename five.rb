@@ -4,6 +4,7 @@ Bundler.require
 class Five < Sinatra::Base
   enable  :raise_errors, :sessions, :logging
   enable  :show_exceptions if development?
+  set :session_secret, "alksdjf;laspd98fyapsihwjk3r"
 
   set :public_folder, File.join(root, "app", "assets")
   set :views, File.join(root, "app", "views")
@@ -25,7 +26,6 @@ class Five < Sinatra::Base
     set :twitter_key, twitter_config[settings.environment.to_s]["key"]
     set :twitter_secret, twitter_config[settings.environment.to_s]["secret"]
   end
-
   
 end
 
