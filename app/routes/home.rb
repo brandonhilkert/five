@@ -5,4 +5,12 @@ class Five
     @wants = @user.wants
     haml :home
   end
+
+  post '/wants' do
+    redirect '/' if !signed_in?
+
+    @user = current_user
+    @user.push(wants: params[:want]) if @user.wants.count < 5
+    redirect "/#{@user.screen_name}"
+  end
 end

@@ -1,5 +1,15 @@
-%h1 
-  = "#{@user.name}'s wants..."
+%h1= "#{@user.name}'s wants..."
+
+%br
+%br
+%br
+
+- if signed_in?
+  %form{action: "/wants", method: "post"}
+    %input{name: "want", type: "text", value: "Hit 'Enter' when finished", onFocus: "if(this.value==this.defaultValue) {this.value='';}", onBlur: "if(this.value=='') {this.value=this.defaultValue;}"}
+
 %p
-  - @wants.each do |want|
-    %h3= want
+  %ol
+    - @wants.each do |want|
+      %li= want
+  

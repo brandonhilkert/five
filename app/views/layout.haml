@@ -22,9 +22,9 @@
                   = current_user.screen_name
                   %b.caret
                 %ul.dropdown-menu
-                  %a{href: "/logout"} Logout
+                  %a{href: "/session/logout"} Logout
             - else
-              %a{href: "/login"} Login
+              %a{href: "/session/login"} Login
 
     .container
       = yield

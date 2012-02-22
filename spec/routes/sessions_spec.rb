@@ -3,14 +3,14 @@ require_relative File.join('..', 'spec_helper')
 describe Five do
   include Five::UserHelpers
 
-  describe "GET /login" do
+  describe "GET /session/login" do
     it "should redirect" do
-      get '/login'
+      get '/session/login'
       last_response.should be_redirect
     end
   end
 
-  describe "GET /callback" do
+  describe "GET /session/callback" do
     let(:access_token) { mock('AccessToken', token: "token", secret: "secret") }
       
     before(:each) do
@@ -29,12 +29,12 @@ describe Five do
     # end
 
     it "should redirect" do
-      get '/callback'
+      get '/session/callback'
       last_response.should be_redirect
     end
   end
 
-  describe "GET /process" do
+  describe "GET /session/process" do
     let (:user) { }
 
     before(:each) do
@@ -53,14 +53,14 @@ describe Five do
     # end
   end
 
-  describe "GET /logout" do
+  describe "GET /session/logout" do
     # it "should set user session to nil" do
     #   get '/logout'
     #   signed_in?.should be_false
     # end
 
     it "should redirect" do
-      get '/logout'
+      get '/session/logout'
       last_response.location.should == 'http://example.org/'
     end
   end
