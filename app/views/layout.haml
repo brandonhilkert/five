@@ -10,9 +10,6 @@
         .container
           %a.brand{href: "/"}
             The 5 things I want...
-          %ul.nav
-            %li
-              %a{href: "/home"} Home
           
           %ul.nav.pull-right
             - if signed_in?
@@ -22,11 +19,15 @@
                   = current_user.screen_name
                   %b.caret
                 %ul.dropdown-menu
-                  %a{href: "/session/logout"} Logout
+                  %li
+                    %a{href: "/#{current_user.try(:screen_name)}"} My Wants
+                    %a{href: "/session/logout"} Logout
             - else
-              %a{href: "/session/login"} Login
+              %li
+                %a{href: "/session/login"} Login
 
     .container
       = yield
 
     %script{src: "javascripts/jquery-1.7.1.min.js", type: "text/javascript"}
+    %script{src: "javascripts/bootstrap.min.js", type: "text/javascript"}
