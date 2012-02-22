@@ -9,8 +9,7 @@ class Five
   post '/wants' do
     redirect '/' if !signed_in?
 
-    @user = current_user
-    @user.push(wants: params[:want]) if @user.wants.count < 5
-    redirect "/#{@user.screen_name}"
+    current_user.push(wants: params[:want]) if current_user.wants.count < 5
+    redirect "/#{current_user.screen_name}"
   end
 end
