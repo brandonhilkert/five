@@ -22,7 +22,7 @@ class Five
 
 
   get '/logout' do
-    session[:user_id] = nil
+    sign_out
     redirect '/'
   end
 end

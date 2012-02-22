@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '..', 'spec_helper')
+require_relative File.join('..', 'spec_helper')
 
 describe Five do
   it "should load successfully" do

@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '..', 'five.rb')
+require_relative File.join('..', 'five.rb')
 
 require 'rack/test'
 require 'rspec'
