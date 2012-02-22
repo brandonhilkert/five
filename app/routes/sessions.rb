@@ -17,7 +17,7 @@ class Five
   get '/process' do
     user = User.process_login(client.verify_credentials)
     sign_in(user)
-    redirect '/home'
+    redirect '/#{user.screen_name}'
   end
 
 
