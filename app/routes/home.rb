@@ -13,7 +13,7 @@ class Five
     redirect "/#{current_user.screen_name}"
   end
 
-  get '/wants/:index' do
+  delete '/wants/:index' do
     redirect '/' if !signed_in?
 
     current_user.wants.delete_at params[:index].to_i

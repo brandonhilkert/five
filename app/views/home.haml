@@ -17,4 +17,6 @@
         %li
           = want
           - if signed_in?
-            %a{href: "/wants/#{index}"} Delete
+            %form{action: "/wants/#{index}", method: "post"}
+              %input{type: "hidden", name: "_method", value: "delete"}
+              %input{type: "submit", value: "Delete"}
