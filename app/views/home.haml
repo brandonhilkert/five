@@ -8,7 +8,6 @@
   %form{action: "/wants", method: "post"}
     %input{name: "want", type: "text", value: "Hit 'Enter' when finished", onFocus: "if(this.value==this.defaultValue) {this.value='';}", onBlur: "if(this.value=='') {this.value=this.defaultValue;}"}
 
-
 %p
   - if @wants.empty?
     No wants found...
@@ -17,4 +16,5 @@
       - @wants.each_with_index do |want, index|
         %li
           = want
-          %a{href: "/wants/#{index}"} Delete
+          - if signed_in?
+            %a{href: "/wants/#{index}"} Delete
