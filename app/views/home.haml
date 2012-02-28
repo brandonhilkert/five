@@ -10,6 +10,8 @@
 
 %p
   %ol
-    - @wants.each do |want|
-      %li= want
+    - @wants.each_with_index do |want, index|
+      %li
+        = want
+        %a{href: "/wants/#{index}"} Delete
   
