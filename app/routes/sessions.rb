@@ -22,7 +22,8 @@ class Five
 
 
   get '/session/logout' do
+    screen_name = current_user.screen_name
     sign_out
-    redirect '/'
+    redirect "/#{screen_name}"
   end
 end
