@@ -1,3 +1,7 @@
+body {
+  background: #fff url('/images/background.png') repeat;
+}
+
 .center {
   text-align: center;
 }

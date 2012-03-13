@@ -1,7 +1,9 @@
 require 'bundler'
+require 'sinatra/reloader'
 Bundler.require
 
 class Five < Sinatra::Base
+
   enable  :raise_errors, :sessions, :logging
   enable  :show_exceptions if development?
   enable  :method_override
@@ -28,6 +30,9 @@ class Five < Sinatra::Base
     set :twitter_secret, twitter_config[settings.environment.to_s]["secret"]
   end
   
+  configure :development do
+    register Sinatra::Reloader
+  end
 end
 
 Dir[Pathname.new("app/**/*.rb")].each {|f| require_relative f}
