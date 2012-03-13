@@ -6,7 +6,7 @@
 
 - if signed_in?
   %form{action: "/wants", method: "post"}
-    %input{name: "want", type: "text", value: "Hit 'Enter' when finished", onFocus: "if(this.value==this.defaultValue) {this.value='';}", onBlur: "if(this.value=='') {this.value=this.defaultValue;}"}
+    %input{name: "want", type: "text", class: "want-input", value: "Hit 'Enter' when finished", onFocus: "if(this.value==this.defaultValue) {this.value='';}", onBlur: "if(this.value=='') {this.value=this.defaultValue;}"}
 
 %p
   - if @wants.empty?
@@ -17,6 +17,6 @@
         %li
           = want
           - if signed_in?
-            %form{action: "/wants/#{index}", method: "post"}
+            %form{action: "/wants/#{index}", method: "post", class: "want-form"}
               %input{type: "hidden", name: "_method", value: "delete"}
-              %input{type: "submit", value: "Delete"}
+              %input{type: "image", name: "submit", class: "icon-trash no-border"}

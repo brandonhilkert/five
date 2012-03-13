@@ -21,8 +21,9 @@ $grayLighter:           #eee !default;
 $white:                 #fff !default;
 
 // Accent colors
-$blue:                  #049cdb !default;
-$blueDark:              #0064cd !default;
+$blue:                  #0070a7 !default;
+$blueDark:              #0a3e6b !default;
+$brightBlue:            #0ac5f4 !default;
 $green:                 #46a546 !default;
 $red:                   #9d261d !default;
 $yellow:                #ffc40d !default;
@@ -32,7 +33,7 @@ $purple:                #7a43b6 !default;
 
 // Typography
 $baseFontSize:          13px !default;
-$baseFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$baseFontFamily:        Lato, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $baseLineHeight:        18px !default;
 $textColor:             $grayDark !default;
 
@@ -66,12 +67,12 @@ $hrBorder:              $grayLighter !default;
 
 // Navbar
 $navbarHeight:                    40px !default;
-$navbarBackground:                $grayDarker !default;
-$navbarBackgroundHighlight:       $grayDark !default;
+$navbarBackground:                $brightBlue !default;
+$navbarBackgroundHighlight:       $brightBlue !default;
 $navbarLinkBackgroundHover:       transparent !default;
 
-$navbarText:                      $grayLight !default;
-$navbarLinkColor:                 $grayLight !default;
+$navbarText:                      $white !default;
+$navbarLinkColor:                 $white !default;
 $navbarLinkColorHover:            $white !default;
 
 // Form states and alerts

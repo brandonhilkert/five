@@ -72,7 +72,7 @@ select,
   line-height: $baseLineHeight;
   color: $gray;
   border: 1px solid #ccc;
-  @include border-radius(3px);
+  @include border-radius(5px);
 }
 .uneditable-textarea {
   width: auto;
