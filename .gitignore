@@ -2,3 +2,4 @@
 bin/
 *.log
 config/twitter.yml
+.sass-cache

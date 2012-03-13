@@ -3,9 +3,7 @@ require 'sinatra/reloader'
 Bundler.require
 
 class Five < Sinatra::Base
-
   enable  :raise_errors, :sessions, :logging
-  enable  :show_exceptions if development?
   enable  :method_override
   set :session_secret, "alksdjf;laspd98fyapsihwjk3r"
 
